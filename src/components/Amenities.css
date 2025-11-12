@@ -1,0 +1,88 @@
+.amenities {
+  background-color: #FBF7F3;
+  padding: var(--space-10) 0;
+}
+
+.amenities-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-margin);
+}
+
+.amenities-content {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-5);
+  margin-top: var(--space-7);
+}
+
+.amenities-image {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  border: 4px solid white;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.amenity-card {
+  background-color: var(--surface-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.amenity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--secondary-accent);
+}
+
+.amenity-icon {
+  width: 56px;
+  height: 56px;
+  background-color: #F3E3D5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-2);
+}
+
+.amenity-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.amenity-description {
+  font-size: 14px;
+  color: #7A6F6A;
+  line-height: 1.6;
+}
+
+.amenities-link {
+  margin-top: var(--space-5);
+  text-align: right;
+}
+
+.explore-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.explore-link:hover {
+  text-decoration: underline;
+}

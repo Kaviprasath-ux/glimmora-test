@@ -1,0 +1,124 @@
+.signature-rooms {
+  background-color: var(--bg-base);
+  padding: var(--space-10) 0;
+}
+
+.rooms-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-margin);
+}
+
+.section-header {
+  margin-bottom: var(--space-7);
+}
+
+.section-title {
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-2);
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  max-width: 600px;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-3);
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.room-card {
+  background-color: var(--surface-card);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.room-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.room-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(193, 122, 84, 0.92);
+  color: white;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+}
+
+.room-content {
+  padding: var(--space-2);
+}
+
+.room-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.room-description {
+  font-size: 14px;
+  color: #7A6F6A;
+  line-height: 1.5;
+  margin-bottom: var(--space-2);
+  min-height: 60px;
+}
+
+.room-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-1);
+  border-top: 1px solid var(--divider);
+}
+
+.room-price {
+  display: flex;
+  align-items: baseline;
+}
+
+.price-amount {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.price-period {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.room-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4C413C;
+}

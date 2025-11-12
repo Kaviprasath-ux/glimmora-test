@@ -1,0 +1,240 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables - Design Tokens */
+:root {
+  /* Colors */
+  --bg-base: #F8F5F2;
+  --surface-card: #FFFFFF;
+  --primary-accent: #C17A54;
+  --primary-dark: #2D1B18;
+  --secondary-accent: #EED3BE;
+  --text-primary: #1F1C1A;
+  --text-secondary: #6F6460;
+  --divider: #E3DDD6;
+  --success-star: #F7C850;
+  --input-placeholder: #A49992;
+  --border-light: #D9C2B4;
+  --hover-bg: #F7EEE6;
+  --subtle-beige: #FBF5EF;
+  --warm-tint: #F5EEE7;
+  --footer-bg: #F9F4EF;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing scale (8px base) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-7: 56px;
+  --space-10: 80px;
+  --space-12: 96px;
+
+  /* Border radius scale */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 18px 45px rgba(15, 12, 10, 0.18);
+  --shadow-lg: 0 24px 60px rgba(15, 12, 10, 0.22);
+
+  /* Layout */
+  --grid-columns: 12;
+  --grid-margin: 72px;
+  --grid-gap: 24px;
+  --max-width: 1280px;
+  --container-width: 1200px;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  overflow-x: hidden;
+}
+
+/* Typography Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.small-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+/* Button Styles */
+button {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-accent);
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+}
+
+.btn-primary:hover {
+  background-color: #B16945;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-dark);
+  padding: 10px 20px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+}
+
+.btn-secondary:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Link Styles */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-accent);
+}
+
+/* Container */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-margin);
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--surface-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Input Styles */
+input {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-pill);
+  padding: 12px 20px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--primary-accent);
+}
+
+input::placeholder {
+  color: var(--input-placeholder);
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-accent {
+  color: var(--primary-accent);
+}
+
+.mb-2 {
+  margin-bottom: var(--space-2);
+}
+
+.mb-3 {
+  margin-bottom: var(--space-3);
+}
+
+.mb-4 {
+  margin-bottom: var(--space-4);
+}
+
+.mt-10 {
+  margin-top: var(--space-10);
+}
+
+.pt-10 {
+  padding-top: var(--space-10);
+}
+
+.pb-10 {
+  padding-bottom: var(--space-10);
+}
