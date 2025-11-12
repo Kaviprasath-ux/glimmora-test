@@ -1,4 +1,3 @@
-import React from 'react';
 import './SignatureRooms.css';
 
 const SignatureRooms = () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import './Amenities.css';
 
 const Amenities = () => {
