@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import FeaturedImages from './components/FeaturedImages';
+import Story from './components/Story';
 import SignatureRooms from './components/SignatureRooms';
 import Amenities from './components/Amenities';
 import Location from './components/Location';
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <Hero />
       <FeaturedImages />
+      <Story />
       <SignatureRooms />
       <Amenities />
       <Location />

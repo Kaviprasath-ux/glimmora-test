@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Location.css';
 
 const Location = () => {
@@ -37,40 +38,88 @@ const Location = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
   return (
     <section className="location">
       <div className="location-container">
-        <div className="section-header text-center">
+        <motion.div 
+          className="section-header text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="small-label text-accent">Location</p>
           <h2 className="section-title">Find Us</h2>
           <p className="section-subtitle">
             Feel free to reach out to us with any questions, feedback, or inquiries.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="map-container">
+        <motion.div 
+          className="map-container"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
           <div className="map-placeholder">
             <div className="map-overlay">
-              <div className="map-pin">
+              <motion.div 
+                className="map-pin"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
+              >
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M35 16.6667C35 28.3333 20 38.3333 20 38.3333C20 38.3333 5 28.3333 5 16.6667C5 12.6884 6.58035 8.87301 9.39341 6.05996C12.2065 3.2469 16.0218 1.66666 20 1.66666C23.9782 1.66666 27.7936 3.2469 30.6066 6.05996C33.4196 8.87301 35 12.6884 35 16.6667Z" fill="#C17A54" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M20 21.6667C22.7614 21.6667 25 19.4281 25 16.6667C25 13.9052 22.7614 11.6667 20 11.6667C17.2386 11.6667 15 13.9052 15 16.6667C15 19.4281 17.2386 21.6667 20 21.6667Z" fill="white"/>
                 </svg>
-              </div>
+              </motion.div>
               <p className="map-label">New York, NY</p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="contact-cards">
+        <motion.div 
+          className="contact-cards"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {contactInfo.map((info) => (
-            <div key={info.id} className="contact-card">
+            <motion.div 
+              key={info.id} 
+              className="contact-card"
+              variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            >
               <div className="contact-icon">{info.icon}</div>
               <h4 className="contact-title">{info.title}</h4>
               <p className="contact-value">{info.value}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

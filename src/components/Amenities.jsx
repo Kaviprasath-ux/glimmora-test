@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Amenities.css';
 
 const Amenities = () => {
@@ -63,38 +64,92 @@ const Amenities = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
   return (
     <section className="amenities">
       <div className="amenities-container">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="small-label text-accent">Facilities</p>
           <h2 className="section-title">World-Class Amenities</h2>
           <p className="section-subtitle">
             Indulge in extraordinary experiences crafted for your comfort.
           </p>
-        </div>
+        </motion.div>
 
         <div className="amenities-content">
-          <div className="amenities-image" style={{
-            background: 'linear-gradient(135deg, #8B7355 0%, #A68A6F 50%, #C1A78F 100%)'
-          }}></div>
+          <motion.div 
+            className="amenities-image" 
+            style={{
+              background: 'linear-gradient(135deg, #8B7355 0%, #A68A6F 50%, #C1A78F 100%)'
+            }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          ></motion.div>
 
-          <div className="amenities-grid">
+          <motion.div 
+            className="amenities-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {amenities.map((amenity) => (
-              <div key={amenity.id} className="amenity-card">
-                <div className="amenity-icon">{amenity.icon}</div>
+              <motion.div 
+                key={amenity.id} 
+                className="amenity-card"
+                variants={itemVariants}
+              >
+                <motion.div 
+                  className="amenity-icon"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {amenity.icon}
+                </motion.div>
                 <h3 className="amenity-title">{amenity.title}</h3>
                 <p className="amenity-description">{amenity.description}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        <div className="amenities-link">
+        <motion.div 
+          className="amenities-link"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
           <a href="#facilities" className="explore-link">
             Explore All Facilities →
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

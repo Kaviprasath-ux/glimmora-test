@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './SignatureRooms.css';
 
 const SignatureRooms = () => {
@@ -45,20 +46,56 @@ const SignatureRooms = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <section className="signature-rooms">
       <div className="rooms-container">
-        <div className="section-header">
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="small-label text-accent">Highlights</p>
           <h2 className="section-title">Our Signature Rooms</h2>
           <p className="section-subtitle">
             Where comfort meets innovation, luxury lives in every detail.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="rooms-grid">
+        <motion.div 
+          className="rooms-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {rooms.map((room) => (
-            <div key={room.id} className="room-card">
+            <motion.div 
+              key={room.id} 
+              className="room-card"
+              variants={itemVariants}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            >
               <div className="room-image" style={{
                 background: `linear-gradient(135deg, ${
                   room.id % 3 === 0 ? '#C17A54, #D9926B' :
@@ -88,9 +125,9 @@ const SignatureRooms = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
